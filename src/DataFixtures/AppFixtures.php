@@ -61,5 +61,7 @@ gstatic.com/images?q=tbn:ANd9GcSfLtRjalUT26tXdZ3RHH8VRMzD
 0S0pT-tFDg&s');
         $book3->setAuthor($author3);
         $manager->persist($book3);
+
+        $manager->flush();
     }
 }
