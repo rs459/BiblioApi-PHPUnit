@@ -44,6 +44,9 @@ class Book
     #[ORM\ManyToOne(inversedBy: 'book')]
     private ?Author $author = null;
 
+    #[ORM\ManyToOne(inversedBy: 'books')]
+    private ?Editor $Editor = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -105,6 +108,18 @@ class Book
     public function setAuthor(?Author $author): static
     {
         $this->author = $author;
+
+        return $this;
+    }
+
+    public function getEditor(): ?Editor
+    {
+        return $this->Editor;
+    }
+
+    public function setEditor(?Editor $Editor): static
+    {
+        $this->Editor = $Editor;
 
         return $this;
     }

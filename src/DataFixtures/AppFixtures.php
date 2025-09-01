@@ -6,6 +6,7 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use App\Entity\Author;
 use App\Entity\Book;
+use App\Entity\Editor;
 
 class AppFixtures extends Fixture
 {
@@ -29,6 +30,24 @@ class AppFixtures extends Fixture
 
         $manager->flush();
 
+        $editor1 = new Editor();
+        $editor1->setName('Gallimard');
+        $editor1->setHeadquarter('France');
+        $editor1->setCreationDate(new \DateTimeImmutable('1946-01-01'));
+        $manager->persist($editor1);
+        $editor2 = new Editor();
+        $editor2->setName('Seuil');
+        $editor2->setHeadquarter('France');
+        $editor2->setCreationDate(new \DateTimeImmutable('1935-01-01'));
+        $manager->persist($editor2);
+        $editor3 = new Editor();
+        $editor3->setName('Bloomsbury');
+        $editor3->setHeadquarter('Royaume-Uni');
+        $editor3->setCreationDate(new \DateTimeImmutable('1997-01-01'));
+        $manager->persist($editor3);
+
+        $manager->flush();
+
         // Création des livres
         $book1 = new Book();
         $book1->setTitle('Le Petit Prince');
@@ -39,6 +58,7 @@ qui voyage de planète en planète.');
 gstatic.com/images?q=tbn:ANd9GcSfLtRjalUT26tXdZ3RHH8VRMzD
 0S0pT-tFDg&s');
         $book1->setAuthor($author1);
+        $book1->setEditor($editor1);
         $manager->persist($book1);
         $book2 = new Book();
         $book2->setTitle('1984');
@@ -49,6 +69,7 @@ surveillance de masse.');
 gstatic.com/images?q=tbn:ANd9GcSfLtRjalUT26tXdZ3RHH8VRMzD
 0S0pT-tFDg&s');
         $book2->setAuthor($author2);
+        $book2->setEditor($editor2);
         $manager->persist($book2);
         $book3 = new Book();
         $book3->setTitle('Harry Potter à l\'école des
@@ -60,6 +81,7 @@ célèbre sorcier.');
 gstatic.com/images?q=tbn:ANd9GcSfLtRjalUT26tXdZ3RHH8VRMzD
 0S0pT-tFDg&s');
         $book3->setAuthor($author3);
+        $book3->setEditor($editor3);
         $manager->persist($book3);
 
         $manager->flush();
