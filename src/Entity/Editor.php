@@ -34,8 +34,8 @@ class Editor
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\Column(type: Types::DATE_IMMUTABLE)]
-    private ?\DateTimeImmutable $creationDate = null;
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    private ?\DateTime $creationDate = null;
 
     #[ORM\Column(length: 255)]
     private ?string $headquarter = null;
@@ -68,12 +68,12 @@ class Editor
         return $this;
     }
 
-    public function getCreationDate(): ?\DateTimeImmutable
+    public function getCreationDate(): ?\DateTime
     {
         return $this->creationDate;
     }
 
-    public function setCreationDate(\DateTimeImmutable $creationDate): static
+    public function setCreationDate(\DateTime $creationDate): static
     {
         $this->creationDate = $creationDate;
 

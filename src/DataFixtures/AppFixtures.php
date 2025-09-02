@@ -33,17 +33,17 @@ class AppFixtures extends Fixture
         $editor1 = new Editor();
         $editor1->setName('Gallimard');
         $editor1->setHeadquarter('France');
-        $editor1->setCreationDate(new \DateTimeImmutable('1946-01-01'));
+        $editor1->setCreationDate(new \DateTime('1946-01-01'));
         $manager->persist($editor1);
         $editor2 = new Editor();
         $editor2->setName('Seuil');
         $editor2->setHeadquarter('France');
-        $editor2->setCreationDate(new \DateTimeImmutable('1935-01-01'));
+        $editor2->setCreationDate(new \DateTime('1935-01-01'));
         $manager->persist($editor2);
         $editor3 = new Editor();
         $editor3->setName('Bloomsbury');
         $editor3->setHeadquarter('Royaume-Uni');
-        $editor3->setCreationDate(new \DateTimeImmutable('1997-01-01'));
+        $editor3->setCreationDate(new \DateTime('1997-01-01'));
         $manager->persist($editor3);
 
         $manager->flush();
@@ -59,7 +59,9 @@ gstatic.com/images?q=tbn:ANd9GcSfLtRjalUT26tXdZ3RHH8VRMzD
 0S0pT-tFDg&s');
         $book1->setAuthor($author1);
         $book1->setEditor($editor1);
+
         $manager->persist($book1);
+
         $book2 = new Book();
         $book2->setTitle('1984');
         $book2->setDescription('Un roman dystopique sur la
@@ -70,7 +72,9 @@ gstatic.com/images?q=tbn:ANd9GcSfLtRjalUT26tXdZ3RHH8VRMzD
 0S0pT-tFDg&s');
         $book2->setAuthor($author2);
         $book2->setEditor($editor2);
+
         $manager->persist($book2);
+
         $book3 = new Book();
         $book3->setTitle('Harry Potter à l\'école des
 sorciers');
